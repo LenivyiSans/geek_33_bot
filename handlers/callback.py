@@ -9,21 +9,17 @@ async def start_questionnaire_call(call: types.CallbackQuery):
     print(call)
     await bot.send_message(
         chat_id=call.message.chat.id,
-        text="Male or Female",
+        text="Male or Female?",
         reply_markup=await question_first_keyboard()
     )
 
 
 async def male_answer_call(call: types.CallbackQuery):
     print(call)
-    # Database().sql_insert_answer_command(
-    #     male,
-    #     call.from_user.id,
-    #     call.from_user.username
-    # )
+
     await bot.send_message(
         chat_id=call.message.chat.id,
-        text="Yes you are Male ?",
+        text="Yes you are Male ",
     )
 
 
