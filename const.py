@@ -1,2 +1,3 @@
 START_TEXT = "Hello *{username}!* \n" \
-             "Im 33_1_bot, right now im developing"
+             "Im new_3_bot, \n" \
+             " right now im developing"
