@@ -1,6 +1,6 @@
 from aiogram.utils import executor
 from config import dp
-from handlers import start, callback, chat_actions
+from handlers import start, callback, chat_actions, fsm_port
 from database import sql_commands
 
 
@@ -9,9 +9,9 @@ async def onstart_up(_):
     db.sql_create_tables()
 
 
-start.reg_start_handler(dp=dp)
-callback.register_callback_handlers(dp=dp)
-chat_actions.register_chat_actions_handlers(dp=dp)
+start.reg_start_handler(dp)
+callback.register_callback_handlers(dp)
+chat_actions.register_chat_actions_handlers(dp)
 
 if __name__ == "__main__":
     executor.start_polling(

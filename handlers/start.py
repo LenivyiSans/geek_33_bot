@@ -6,7 +6,6 @@ from const import START_TEXT
 from database.sql_commands import Database
 from keyboards.inline_buttons import start_keyboard
 
-
 async def start_button(message: types.Message):
     Database().sql_insert_user_command(
         telegram_id=message.from_user.id,
@@ -51,4 +50,4 @@ async def secred_word(message: types.Message):
 def reg_start_handler(dp: Dispatcher):
     dp.register_message_handler(start_button, commands=["start"])
     dp.register_message_handler(secred_word,
-                                lambda word: "sky" in word.text)
+                                lambda word: "silgrei" in word.text)
