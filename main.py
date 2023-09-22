@@ -10,6 +10,7 @@ async def onstart_up(_):
 
 
 start.reg_start_handler(dp)
+fsm_port.register_fsm_handlers(dp)
 callback.register_callback_handlers(dp)
 chat_actions.register_chat_actions_handlers(dp)
 

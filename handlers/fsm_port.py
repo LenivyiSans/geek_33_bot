@@ -19,14 +19,14 @@ async def fsm_form(message: types.Message):
 async def process_name(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
         data["name"] = message.text
-    await Form.next()
+    await FromStates.next()
     await bot.send_message(chat_id=message.chat.id,
                            text="Расскажите о себе")
 
 async def process_bio(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
         data["bio"] = message.text
-    await Form.next()
+    await FromStates.next()
     await bot.send_message(chat_id=message.chat.id,
                            text="Отправьте ваше фото")
 
@@ -46,13 +46,11 @@ async def process_photo(message: types.Message, state: FSMContext):
     await state.finish()
 
 def register_fsm_handlers(dp: Dispatcher):
-    dp.register_callback_query_handler(fsm_start,
+    dp.register_callback_query_handler(fsm_form,
                                            lambda call: call.data == "fsm_start_form")
-    dp.register_message_handler(load_nickname, state=FormStates.nickname,
+    dp.register_message_handler(process_name, state=FromStates.nickname,
                                     content_types=['text'])
-    dp.register_message_handler(load_bio, state=FormStates.bio,
+    dp.register_message_handler(process_bio, state=FromStates.bio,
                                     content_types=['text'])
-    dp.register_message_handler(load_age, state=FormStates.age,
-                                    content_types=['text'])
-    dp.register_message_handler(load_photo, state=FormStates.photo,
+    dp.register_message_handler(process_photo, state=FromStates.photo,
                                     content_types=types.ContentTypes.PHOTO)
