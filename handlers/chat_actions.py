@@ -5,7 +5,7 @@ from aiogram import types, Dispatcher
 
 
 async def echo_ban(message: types.Message):
-    ban_word = ['shit', 'fuck', 'bitch', 'damn']
+    ban_word = ['shit', 'fuck', 'bitch', 'damn', 'daun']
 
     if message.chat.id == GROUP_ID:
         for word in ban_word:

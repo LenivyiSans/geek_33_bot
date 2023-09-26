@@ -46,7 +46,7 @@ async def process_photo(message: types.Message, state: FSMContext):
     await state.finish()
 
 def register_fsm_handlers(dp: Dispatcher):
-    dp.register_message_handler(fsm_form, commands=['fsm_start_form'])
+    dp.register_message_handler(fsm_form, commands=['fsm_start'])
     dp.register_message_handler(process_name, state=FromStates.nickname,
                                     content_types=['text'])
     dp.register_message_handler(process_bio, state=FromStates.bio,
