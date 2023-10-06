@@ -8,7 +8,6 @@ async def onstart_up(_):
     db = sql_commands.Database()
     db.sql_create_tables()
 
-
 start.reg_start_handler(dp)
 fsm_port.register_fsm_handlers(dp)
 callback.register_callback_handlers(dp)

@@ -6,6 +6,7 @@ from const import START_TEXT
 from database.sql_commands import Database
 from keyboards.inline_buttons import start_keyboard
 
+
 async def start_button(message: types.Message):
     Database().sql_insert_user_command(
         telegram_id=message.from_user.id,
